@@ -1,5 +1,6 @@
 var utils = this.utils || {};
 var forwarding = this.forwarding || {};
+
 utils.def = (function () {
 	config = {
 		domain: "http://konrad-kowalski.com/"
@@ -12,6 +13,7 @@ utils.def = (function () {
 	};
 	
 })();
+
 utils.event = (function () {
 	return {
 		add: function (target, eventType, callback, bubbles) {
@@ -26,9 +28,11 @@ utils.event = (function () {
 		}
 	};
 })();
+
 utils.browser = (function () {
-    var browsers = ["msie", "chrome", "safari", "opera", "mozilla", "konqueror"];
-    return {
+	var browsers = ["msie", "chrome", "safari", "opera", "mozilla", "konqueror"];
+	
+	return {
 		getName: function () {
 			var userAgent = navigator.userAgent.toLowerCase();
 			for(var i = 0, len = browsers.length; i < len; ++i) {
@@ -41,6 +45,7 @@ utils.browser = (function () {
 	};
 	
 })();
+
 forwarding = (function () {
 	return {
 		close: true,
@@ -73,6 +78,7 @@ forwarding = (function () {
 		}
 	};
 })();
+
 utils.event.add(window, "load", function () {
 	utils.event.add(document.body, "mouseover", function () {
 		forwarding.closeWin(true);
